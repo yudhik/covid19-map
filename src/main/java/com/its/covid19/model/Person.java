@@ -4,6 +4,7 @@ import java.time.ZoneId;
 import java.util.Date;
 import org.neo4j.driver.types.Node;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.neo4j.ogm.annotation.typeconversion.DateString;
 
 public class Person {
 
@@ -27,6 +28,7 @@ public class Person {
   private String firstName;
   private String middleName;
   private String lastName;
+  @DateString("MM-dd-yyyy")
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM-dd-yyyy")
   private Date dateOfBirth;
   private Gender gender;

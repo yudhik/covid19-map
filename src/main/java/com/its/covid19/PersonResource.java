@@ -1,5 +1,6 @@
 package com.its.covid19;
 
+import com.its.covid19.util.CommonUtil;
 import java.net.URI;
 import java.util.Locale;
 import java.util.UUID;
@@ -93,8 +94,8 @@ public class PersonResource {
       ConditionLocation conditionLocation) {
     LOGGER.info("{} post {}", id, conditionLocation.toString());
     AsyncSession session = driver.asyncSession();
-    String conditionId = UUID.randomUUID().toString().replace("-", "").toUpperCase(Locale.ENGLISH);
-    String locationId = UUID.randomUUID().toString().replace("-", "").toUpperCase(Locale.ENGLISH);
+    String conditionId = CommonUtil.generateRandomUUID();
+    String locationId = CommonUtil.generateRandomUUID();
     conditionLocation.setId(conditionId);
     conditionLocation.getLocation().setId(locationId);
     LOGGER.info("saving {}", conditionLocation);

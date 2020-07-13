@@ -1,7 +1,10 @@
 package com.its.covid19.model;
 
 import org.neo4j.driver.types.Node;
+import org.neo4j.ogm.annotation.Id;
+import org.neo4j.ogm.annotation.NodeEntity;
 
+@NodeEntity
 public class Condition {
 
   public static final String CREATE_CONDITION_LOCATION_STATEMENT =
@@ -31,6 +34,7 @@ public class Condition {
         node.get("shortnessOfBreath").asBoolean());
   }
 
+  @Id
   private String id;
   private float temperature;
   private boolean cough;
